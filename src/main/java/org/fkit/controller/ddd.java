@@ -8,7 +8,7 @@ public class ddd
 
         System.out.println(str.substring(6,10));
         System.out.print(String.format("%02d", 12));
-
+111
         System.out.print((2018-1888)%12);
     }
 }
