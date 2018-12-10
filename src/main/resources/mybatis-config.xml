@@ -8,7 +8,9 @@
     <settings>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
-
+    <typeAliases>
+        <package name="org.fkit.domain"/>
+    </typeAliases>
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC" />
@@ -24,4 +26,5 @@
     <mappers>
         <mapper resource="mapper/UserMapper.xml"></mapper>
     </mappers>
+
 </configuration>

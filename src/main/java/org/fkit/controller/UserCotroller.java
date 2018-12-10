@@ -2,7 +2,6 @@ package org.fkit.controller;
 
 
 import org.fkit.converter.DateEditor;
-import org.fkit.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -24,16 +23,16 @@ public class UserCotroller
     }
 
 
-    @RequestMapping("/register")
-    public String register(
-            @ModelAttribute User user,
-            Model model
-    )
-    {
-        model.addAttribute("user", user);
-        return "success";
-    }
-
+//    @RequestMapping("/register")
+//    public String register(
+//            @ModelAttribute User user,
+//            Model model
+//    )
+//    {
+//        model.addAttribute("user", user);
+//        return "success";
+//    }
+//
 
     @InitBinder
     public void initBinder(WebDataBinder binder)

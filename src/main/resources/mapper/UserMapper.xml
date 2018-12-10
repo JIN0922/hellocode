@@ -3,8 +3,50 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users_db">
-    <insert id="save" parameterType="org.fkit.domain.Users_db" useGeneratedKeys="true">
+    <insert id="save" parameterType="user" useGeneratedKeys="true">
         INSERT into tb_user(name,sex,age) values (#{name},#{sex},#{age})
     </insert>
 
+
+
+    <insert id="saveUser" parameterType="user">
+
+         INSERT into tb_user(name,sex,age) values (#{name},#{sex},#{age})
+    </insert>
+
+
+    <select id="selectUser" parameterType="int" resultType="user">
+         select * from tb_user where id=#{id}
+    </select>
+
+    <update id="modifyUser" parameterType="user">
+
+        update tb_user  set name=#{name},age=#{age},sex=#{sex} where id=#{id}
+
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from tb_user where id =#{id}
+
+    </delete>
+    
+    
+    
+    <resultMap id="studentResultMap" type="org.fkit.domain.student">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <association property="clazz" column="clazz_id" javaType="org.fkit.domain.clazz" select="selectClazzWithId"/>
+    </resultMap>
+
+
+    <select id="selectClazzWithId"  resultType="org.fkit.domain.clazz" >
+        select * from tb_calzz where id=#{id}
+    </select>
+    
+    
+    <select id="selectStudent"  resultMap="studentResultMap">
+        select * from tb_student
+    </select>
 </mapper>

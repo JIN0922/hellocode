@@ -1,5 +1,8 @@
 package org.fkit.domain;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("user")
 public class Users_db
 {
     private  Integer id;
